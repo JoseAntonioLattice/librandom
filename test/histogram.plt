@@ -1,9 +1,9 @@
 reset
 
 min = 0.0
-max =  1.0
+max =  10.0
 
-n = 50#floor(sqrt(10000))
+n = 10#floor(sqrt(10000))
 width = (max - min)/n
 
 hist(x,width) =  width*(floor((x-min)/width)+0.5) + min

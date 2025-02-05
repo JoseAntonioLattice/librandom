@@ -7,9 +7,20 @@ module random
 
   private
   public :: uniform, normal, exponential
+  public :: random_choice
   
 contains
 
+  function random_choice(n)
+    integer(i4) :: random_choice
+    integer(i4), intent(in) :: n
+    real(dp) :: r
+
+    call random_number(r)
+    random_choice = floor(n*r) + 1
+    
+  end function random_choice
+  
   function uniform(a,b)
     real(dp), optional :: a, b
     real(dp) :: uniform, r, a_, b_

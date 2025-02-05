@@ -10,8 +10,10 @@ program test
 
 
   do i = 1, 10**5
-     write(outunit,*) uniform(), normal(), exponential()
+  !   write(outunit,*) uniform(), normal(), exponential()
+     write(outunit,*) random_choice(10)
   end do
 
+  
   
 end program test
