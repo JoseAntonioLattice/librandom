@@ -14,12 +14,12 @@ LIB = $(HOME)/Fortran/lib
 INC = $(HOME)/Fortran/include
 .PHONY : install all test readme cleanlib
 
-all : install $(LIB)/lib$(libname).so
+all : install obj/random.o $(LIB)/lib$(libname).so
 
-$(LIB)/lib$(libname).so.$(version): $(OBJECTS)
+$(LIB)/lib$(libname).so.$(version): obj/random.o
 	$(FC) -shared -o $@ $^   
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.f90 $(OBJDIR)
+obj/random.o: src/random.f90 $(OBJDIR)
 	$(FC) -O3 -fpic -c -J $(INC) $< -o $@
 
 $(LIB)/lib$(libname).so.$(major) : $(LIB)/lib$(libname).so.$(version)
